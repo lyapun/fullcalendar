@@ -799,7 +799,7 @@ function EventManager(options) { // assumed to be a calendar
 	// TODO: don't use so many closures. possible memory issues when lots of events with same ID.
 	//
 	function mutateEvents(events, clearEnd, allDay, dateDelta, durationDelta, miscProps) {
-		var isAmbigTimezone = t.getIsAmbigTimezone();
+		// var isAmbigTimezone = t.getIsAmbigTimezone();
 		var undoFunctions = [];
 
 		// normalize zero-length deltas to be null

@@ -9653,7 +9653,7 @@ function EventManager(options) { // assumed to be a calendar
 	// TODO: don't use so many closures. possible memory issues when lots of events with same ID.
 	//
 	function mutateEvents(events, clearEnd, allDay, dateDelta, durationDelta, miscProps) {
-		var isAmbigTimezone = t.getIsAmbigTimezone();
+		// var isAmbigTimezone = t.getIsAmbigTimezone();
 		var undoFunctions = [];
 
 		// normalize zero-length deltas to be null
@@ -9705,16 +9705,16 @@ function EventManager(options) { // assumed to be a calendar
 
 			// if the dates have changed, and we know it is impossible to recompute the
 			// timezone offsets, strip the zone.
-			if (
-				isAmbigTimezone &&
-				!newProps.allDay &&
-				(dateDelta || durationDelta)
-			) {
-				newProps.start.stripZone();
-				if (newProps.end) {
-					newProps.end.stripZone();
-				}
-			}
+			// if (
+			// 	isAmbigTimezone &&
+			// 	!newProps.allDay &&
+			// 	(dateDelta || durationDelta)
+			// ) {
+			// 	newProps.start.stripZone();
+			// 	if (newProps.end) {
+			// 		newProps.end.stripZone();
+			// 	}
+			// }
 
 			$.extend(event, miscProps, newProps); // copy over misc props, then date-related props
 			backupEventDates(event); // regenerate internal _start/_end/_allDay
